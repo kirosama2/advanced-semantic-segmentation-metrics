@@ -8,3 +8,8 @@ os.environ["CUDA_VISIBLE_DEVICES"] = sys.argv[1]
 
 from pythonlib.crf import crf_inference
 from pythonlib.dataset import dataset
+from pythonlib.predict import Predict
+
+class Test():
+    def __init__(self,config):
+        self.conf
