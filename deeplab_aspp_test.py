@@ -12,4 +12,6 @@ from pythonlib.predict import Predict
 
 class Test():
     def __init__(self,config):
-        self.conf
+        self.config = config
+        if self.config["input_size"] is not None:
+            self.h,self.w = self.config.get("input_size",(25,25))
