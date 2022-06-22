@@ -15,3 +15,6 @@ class Test():
         self.config = config
         if self.config["input_size"] is not None:
             self.h,self.w = self.config.get("input_size",(25,25))
+        else:
+            self.h,self.w = None,None
+        self.category_num = self.config.
