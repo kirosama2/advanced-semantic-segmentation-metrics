@@ -21,4 +21,9 @@ class Test():
         self.accum_num = self.config.get("accum_num",1)
         self.net = {}
         self.weights = {}
- 
+        self.min_prob = 0.0001
+        self.stride = {}
+        self.stride["input"] = 1
+        self.trainable_list = []
+
+  
