@@ -26,4 +26,7 @@ class Test():
         self.stride["input"] = 1
         self.trainable_list = []
 
-  
+    def build(self,net_input,net_label,net_id):
+        if "output" not in self.net:
+            with tf.name_scope("placeholder"):
+   
