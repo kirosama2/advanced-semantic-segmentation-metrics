@@ -17,4 +17,8 @@ class Test():
             self.h,self.w = self.config.get("input_size",(25,25))
         else:
             self.h,self.w = None,None
-        self.category_num = self.config.
+        self.category_num = self.config.get("category_num",21)
+        self.accum_num = self.config.get("accum_num",1)
+        self.net = {}
+        self.weights = {}
+ 
