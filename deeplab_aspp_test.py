@@ -30,4 +30,6 @@ class Test():
         if "output" not in self.net:
             with tf.name_scope("placeholder"):
                 self.net["input"] = net_input
-                self.net["label"] = net_label # [None, self.h,se
+                self.net["label"] = net_label # [None, self.h,self.w,1], int32
+                self.net["id"] = net_id
+                self.net["drop_prob"] = tf.Variable
