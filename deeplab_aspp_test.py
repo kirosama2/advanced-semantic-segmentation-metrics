@@ -29,4 +29,5 @@ class Test():
     def build(self,net_input,net_label,net_id):
         if "output" not in self.net:
             with tf.name_scope("placeholder"):
-   
+                self.net["input"] = net_input
+                self.net["label"] = net_label # [None, self.h,se
