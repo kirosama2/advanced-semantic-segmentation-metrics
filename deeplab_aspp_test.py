@@ -32,4 +32,8 @@ class Test():
                 self.net["input"] = net_input
                 self.net["label"] = net_label # [None, self.h,self.w,1], int32
                 self.net["id"] = net_id
-                self.net["drop_prob"] = tf.Variable
+                self.net["drop_prob"] = tf.Variable(1.0)
+
+            self.net["output"] = self.create_network()
+            self.pred()
+        return self.net["out
