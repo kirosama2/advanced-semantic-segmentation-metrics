@@ -36,4 +36,8 @@ class Test():
 
             self.net["output"] = self.create_network()
             self.pred()
-        return self.net["out
+        return self.net["output"]
+
+    def create_network(self):
+        if "init_model_path" in self.config:
+            self.
