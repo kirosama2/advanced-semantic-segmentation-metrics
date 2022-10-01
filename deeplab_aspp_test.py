@@ -40,4 +40,7 @@ class Test():
 
     def create_network(self):
         if "init_model_path" in self.config:
-            self.
+            self.load_init_model()
+        with tf.name_scope("vgg") as scope:
+            # build block
+            block = se
