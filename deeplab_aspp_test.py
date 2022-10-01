@@ -45,4 +45,5 @@ class Test():
             # build block
             block = self.build_block("input",["conv1_1","relu1_1","conv1_2","relu1_2","pool1"])
             block = self.build_block(block,["conv2_1","relu2_1","conv2_2","relu2_2","pool2"])
-            block = self.build_block(block,["conv3_1","rel
+            block = self.build_block(block,["conv3_1","relu3_1","conv3_2","relu3_2","conv3_3","relu3_3","pool3"])
+            block = self.build_block(block,["conv4_1","relu4_1","conv4_2"
