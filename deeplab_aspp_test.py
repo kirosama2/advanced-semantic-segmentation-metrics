@@ -44,4 +44,5 @@ class Test():
         with tf.name_scope("vgg") as scope:
             # build block
             block = self.build_block("input",["conv1_1","relu1_1","conv1_2","relu1_2","pool1"])
-            block = self.build_block(block,["c
+            block = self.build_block(block,["conv2_1","relu2_1","conv2_2","relu2_2","pool2"])
+            block = self.build_block(block,["conv3_1","rel
