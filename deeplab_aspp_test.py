@@ -47,4 +47,5 @@ class Test():
             block = self.build_block(block,["conv2_1","relu2_1","conv2_2","relu2_2","pool2"])
             block = self.build_block(block,["conv3_1","relu3_1","conv3_2","relu3_2","conv3_3","relu3_3","pool3"])
             block = self.build_block(block,["conv4_1","relu4_1","conv4_2","relu4_2","conv4_3","relu4_3","pool4"])
-            block = self.build_block(block,["conv5_1","relu5_1","conv5_2","relu5_2","c
+            block = self.build_block(block,["conv5_1","relu5_1","conv5_2","relu5_2","conv5_3","relu5_3","pool5","pool5a"])
+            fc1 = self.build_fc(block,["fc6_1","relu6_1","drop6_1","fc7_1
