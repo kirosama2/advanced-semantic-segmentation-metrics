@@ -48,4 +48,5 @@ class Test():
             block = self.build_block(block,["conv3_1","relu3_1","conv3_2","relu3_2","conv3_3","relu3_3","pool3"])
             block = self.build_block(block,["conv4_1","relu4_1","conv4_2","relu4_2","conv4_3","relu4_3","pool4"])
             block = self.build_block(block,["conv5_1","relu5_1","conv5_2","relu5_2","conv5_3","relu5_3","pool5","pool5a"])
-            fc1 = self.build_fc(block,["fc6_1","relu6_1","drop6_1","fc7_1
+            fc1 = self.build_fc(block,["fc6_1","relu6_1","drop6_1","fc7_1","relu7_1","drop7_1","fc8_1"], dilate_rate=6)
+            fc2 = self.build_fc(block,["fc6_2","relu6_2","drop6_2"
