@@ -54,3 +54,7 @@ class Test():
             fc4 = self.build_fc(block,["fc6_4","relu6_4","drop6_4","fc7_4","relu7_4","drop7_4","fc8_4"], dilate_rate=24)
             #self.net["fc8"] = (self.net[fc1]+self.net[fc2]+self.net[fc3]+self.net[fc4])/4.0
             self.net["fc8"] = self.net[fc1]+self.net[fc2]+self.net[fc3]+self.net[fc4]
+
+            return self.net["fc8"] # note that the output is a log-number
+
+    def build_block(self,last_lay
