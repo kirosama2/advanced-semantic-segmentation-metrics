@@ -51,4 +51,5 @@ class Test():
             fc1 = self.build_fc(block,["fc6_1","relu6_1","drop6_1","fc7_1","relu7_1","drop7_1","fc8_1"], dilate_rate=6)
             fc2 = self.build_fc(block,["fc6_2","relu6_2","drop6_2","fc7_2","relu7_2","drop7_2","fc8_2"], dilate_rate=12)
             fc3 = self.build_fc(block,["fc6_3","relu6_3","drop6_3","fc7_3","relu7_3","drop7_3","fc8_3"], dilate_rate=18)
-            fc4 = self.build_fc(block,["fc6_4","relu6_4","d
+            fc4 = self.build_fc(block,["fc6_4","relu6_4","drop6_4","fc7_4","relu7_4","drop7_4","fc8_4"], dilate_rate=24)
+            #self.net["fc8"] = (self.net[fc1]+self.net[fc2]+self.
