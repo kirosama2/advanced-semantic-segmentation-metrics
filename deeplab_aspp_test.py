@@ -57,4 +57,7 @@ class Test():
 
             return self.net["fc8"] # note that the output is a log-number
 
-    def build_block(self,last_lay
+    def build_block(self,last_layer,layer_lists):
+        for layer in layer_lists:
+            if layer.startswith("conv"):
+                if layer[4
