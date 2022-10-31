@@ -62,4 +62,6 @@ class Test():
             if layer.startswith("conv"):
                 if layer[4] != "5":
                     with tf.name_scope(layer) as scope:
-                        self.stri
+                        self.stride[layer] = self.stride[last_layer]
+                        weights,bias = self.get_weights_and_bias(layer)
+          
