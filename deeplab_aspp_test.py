@@ -60,4 +60,6 @@ class Test():
     def build_block(self,last_layer,layer_lists):
         for layer in layer_lists:
             if layer.startswith("conv"):
-                if layer[4
+                if layer[4] != "5":
+                    with tf.name_scope(layer) as scope:
+                        self.stri
