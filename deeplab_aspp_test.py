@@ -68,4 +68,6 @@ class Test():
                         self.net[layer] = tf.nn.bias_add( self.net[layer], bias, name="bias")
                         last_layer = layer
                 if layer[4] == "5":
-                    with tf.name_scope(layer) as scop
+                    with tf.name_scope(layer) as scope:
+                        self.stride[layer] = self.stride[last_layer]
+                      
