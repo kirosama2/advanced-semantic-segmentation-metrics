@@ -66,4 +66,6 @@ class Test():
                         weights,bias = self.get_weights_and_bias(layer)
                         self.net[layer] = tf.nn.conv2d( self.net[last_layer], weights, strides = [1,1,1,1], padding="SAME", name="conv")
                         self.net[layer] = tf.nn.bias_add( self.net[layer], bias, name="bias")
-                        last_
+                        last_layer = layer
+                if layer[4] == "5":
+                    with tf.name_scope(layer) as scop
