@@ -70,4 +70,5 @@ class Test():
                 if layer[4] == "5":
                     with tf.name_scope(layer) as scope:
                         self.stride[layer] = self.stride[last_layer]
-                      
+                        weights,bias = self.get_weights_and_bias(layer)
+                        self.net[layer] = tf.nn.atrous_conv2d( self.net[
