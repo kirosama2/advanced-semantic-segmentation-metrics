@@ -71,4 +71,5 @@ class Test():
                     with tf.name_scope(layer) as scope:
                         self.stride[layer] = self.stride[last_layer]
                         weights,bias = self.get_weights_and_bias(layer)
-                        self.net[layer] = tf.nn.atrous_conv2d( self.net[
+                        self.net[layer] = tf.nn.atrous_conv2d( self.net[last_layer], weights, rate=2, padding="SAME", name="conv")
+                        self.net[layer] = tf.nn.bias_a
