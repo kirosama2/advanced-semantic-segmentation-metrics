@@ -76,4 +76,5 @@ class Test():
                         last_layer = layer
             if layer.startswith("batch_norm"):
                 with tf.name_scope(layer) as scope:
-                    self
+                    self.stride[layer] = self.stride[last_layer]
+                    self.net[layer] = tf.contrib.layers.batch_norm(self.net[
