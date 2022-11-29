@@ -82,4 +82,6 @@ class Test():
             if layer.startswith("relu"):
                 with tf.name_scope(layer) as scope:
                     self.stride[layer] = self.stride[last_layer]
-                   
+                    self.net[layer] = tf.nn.relu( self.net[last_layer],name="relu")
+                    last_layer = layer
+            elif l
