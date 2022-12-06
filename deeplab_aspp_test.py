@@ -86,4 +86,5 @@ class Test():
                     last_layer = layer
             elif layer.startswith("pool5a"):
                 with tf.name_scope(layer) as scope:
-                    self.
+                    self.stride[layer] = self.stride[last_layer]
+                    self.net[layer] = tf.nn.avg_p
