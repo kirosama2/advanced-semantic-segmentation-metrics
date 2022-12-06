@@ -84,4 +84,6 @@ class Test():
                     self.stride[layer] = self.stride[last_layer]
                     self.net[layer] = tf.nn.relu( self.net[last_layer],name="relu")
                     last_layer = layer
-            elif l
+            elif layer.startswith("pool5a"):
+                with tf.name_scope(layer) as scope:
+                    self.
