@@ -88,4 +88,7 @@ class Test():
                 with tf.name_scope(layer) as scope:
                     self.stride[layer] = self.stride[last_layer]
                     self.net[layer] = tf.nn.avg_pool( self.net[last_layer], ksize=[1,3,3,1], strides=[1,1,1,1],padding="SAME",name="pool")
-                    last_layer = 
+                    last_layer = layer
+            elif layer.startswith("pool"):
+                if layer[4] not in ["4","5"]:
+     
