@@ -91,4 +91,5 @@ class Test():
                     last_layer = layer
             elif layer.startswith("pool"):
                 if layer[4] not in ["4","5"]:
-     
+                    with tf.name_scope(layer) as scope:
+                        self.stride[layer] = 2 * self.stride[last_l
