@@ -92,4 +92,5 @@ class Test():
             elif layer.startswith("pool"):
                 if layer[4] not in ["4","5"]:
                     with tf.name_scope(layer) as scope:
-                        self.stride[layer] = 2 * self.stride[last_l
+                        self.stride[layer] = 2 * self.stride[last_layer]
+                        self.net[layer] = tf.nn.max_pool( self.net[last_layer], ksize=[1,3,
