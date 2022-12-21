@@ -97,4 +97,5 @@ class Test():
                         last_layer = layer
                 if layer[4] in ["4","5"]:
                     with tf.name_scope(layer) as scope:
-                        sel
+                        self.stride[layer] = self.stride[last_layer]
+                        self.net[layer] = tf.nn.max_pool( self.net[last_layer], 
