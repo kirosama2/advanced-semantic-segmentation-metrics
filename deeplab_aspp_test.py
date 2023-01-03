@@ -100,4 +100,8 @@ class Test():
                         self.stride[layer] = self.stride[last_layer]
                         self.net[layer] = tf.nn.max_pool( self.net[last_layer], ksize=[1,3,3,1], strides=[1,1,1,1],padding="SAME",name="pool")
                         last_layer = layer
-       
+        return last_layer
+
+    def build_fc(self,last_layer, layer_lists,dilate_rate):
+        for layer in layer_lists:
+            if laye
