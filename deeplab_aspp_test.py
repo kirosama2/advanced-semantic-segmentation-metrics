@@ -104,4 +104,6 @@ class Test():
 
     def build_fc(self,last_layer, layer_lists,dilate_rate):
         for layer in layer_lists:
-            if laye
+            if layer.startswith("fc"):
+                with tf.name_scope(layer) as scope:
+                    weights,bias = self.get_weights_and_bia
