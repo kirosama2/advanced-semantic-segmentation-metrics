@@ -106,4 +106,6 @@ class Test():
         for layer in layer_lists:
             if layer.startswith("fc"):
                 with tf.name_scope(layer) as scope:
-                    weights,bias = self.get_weights_and_bia
+                    weights,bias = self.get_weights_and_bias(layer)
+                    if layer.startswith("fc6"):
+                        self.net[layer] = tf.nn
