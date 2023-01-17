@@ -110,4 +110,5 @@ class Test():
                     if layer.startswith("fc6"):
                         self.net[layer] = tf.nn.atrous_conv2d( self.net[last_layer], weights, rate=dilate_rate, padding="SAME", name="conv")
 
-              
+                    else:
+                        self.net[layer] = tf.nn.conv2d( self.net[last_layer], weights, strides = [1,1,1,1], pad
