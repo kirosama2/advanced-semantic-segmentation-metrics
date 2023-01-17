@@ -111,4 +111,6 @@ class Test():
                         self.net[layer] = tf.nn.atrous_conv2d( self.net[last_layer], weights, rate=dilate_rate, padding="SAME", name="conv")
 
                     else:
-                        self.net[layer] = tf.nn.conv2d( self.net[last_layer], weights, strides = [1,1,1,1], pad
+                        self.net[layer] = tf.nn.conv2d( self.net[last_layer], weights, strides = [1,1,1,1], padding="SAME", name="conv")
+                    self.net[layer] = tf.nn.bias_add( self.net[layer], bias, name="bias")
+          
