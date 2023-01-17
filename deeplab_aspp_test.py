@@ -108,4 +108,6 @@ class Test():
                 with tf.name_scope(layer) as scope:
                     weights,bias = self.get_weights_and_bias(layer)
                     if layer.startswith("fc6"):
-                        self.net[layer] = tf.nn
+                        self.net[layer] = tf.nn.atrous_conv2d( self.net[last_layer], weights, rate=dilate_rate, padding="SAME", name="conv")
+
+              
