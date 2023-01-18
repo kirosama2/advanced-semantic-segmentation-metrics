@@ -113,4 +113,6 @@ class Test():
                     else:
                         self.net[layer] = tf.nn.conv2d( self.net[last_layer], weights, strides = [1,1,1,1], padding="SAME", name="conv")
                     self.net[layer] = tf.nn.bias_add( self.net[layer], bias, name="bias")
-          
+                    last_layer = layer
+            if layer.startswith("batch_norm"):
+                with tf.name_scope(layer) as scope
