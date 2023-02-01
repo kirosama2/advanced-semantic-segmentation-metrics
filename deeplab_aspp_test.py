@@ -115,4 +115,6 @@ class Test():
                     self.net[layer] = tf.nn.bias_add( self.net[layer], bias, name="bias")
                     last_layer = layer
             if layer.startswith("batch_norm"):
-                with tf.name_scope(layer) as scope
+                with tf.name_scope(layer) as scope:
+                    self.net[layer] = tf.contrib.layers.batch_norm(self.net[last_layer])
+                    last_layer = la
