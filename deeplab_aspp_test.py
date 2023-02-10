@@ -117,4 +117,7 @@ class Test():
             if layer.startswith("batch_norm"):
                 with tf.name_scope(layer) as scope:
                     self.net[layer] = tf.contrib.layers.batch_norm(self.net[last_layer])
-                    last_layer = la
+                    last_layer = layer
+            if layer.startswith("relu"):
+                with tf.name_scope(layer) as scope:
+                 
