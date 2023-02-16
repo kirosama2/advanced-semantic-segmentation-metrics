@@ -120,4 +120,6 @@ class Test():
                     last_layer = layer
             if layer.startswith("relu"):
                 with tf.name_scope(layer) as scope:
-                 
+                    self.net[layer] = tf.nn.relu( self.net[last_layer])
+                    last_layer = layer
+            if layer.start
