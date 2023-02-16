@@ -122,4 +122,6 @@ class Test():
                 with tf.name_scope(layer) as scope:
                     self.net[layer] = tf.nn.relu( self.net[last_layer])
                     last_layer = layer
-            if layer.start
+            if layer.startswith("drop"):
+                with tf.name_scope(layer) as scope:
+                    self.net[layer]
