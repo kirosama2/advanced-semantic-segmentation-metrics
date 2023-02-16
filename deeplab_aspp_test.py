@@ -124,4 +124,6 @@ class Test():
                     last_layer = layer
             if layer.startswith("drop"):
                 with tf.name_scope(layer) as scope:
-                    self.net[layer]
+                    self.net[layer] = tf.nn.dropout( self.net[last_layer],self.net["drop_prob"])
+                    last_layer = layer
+
