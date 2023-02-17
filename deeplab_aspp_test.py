@@ -127,3 +127,8 @@ class Test():
                     self.net[layer] = tf.nn.dropout( self.net[last_layer],self.net["drop_prob"])
                     last_layer = layer
 
+        return last_layer
+
+    def get_weights_and_bias(self,layer,shape=None):
+        print("layer: %s" % layer)
+        if la
