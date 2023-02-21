@@ -131,4 +131,8 @@ class Test():
 
     def get_weights_and_bias(self,layer,shape=None):
         print("layer: %s" % layer)
-        if la
+        if layer in self.weights:
+            return self.weights[layer]
+        if shape is not None:
+            pass
+     
