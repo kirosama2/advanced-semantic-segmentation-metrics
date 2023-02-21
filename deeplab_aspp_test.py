@@ -135,4 +135,7 @@ class Test():
             return self.weights[layer]
         if shape is not None:
             pass
-     
+        elif layer.startswith("conv"):
+            shape = [3,3,0,0]
+            if layer == "conv1_1":
+                shape[2] = 3
