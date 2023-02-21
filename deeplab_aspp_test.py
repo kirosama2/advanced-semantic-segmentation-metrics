@@ -139,3 +139,6 @@ class Test():
             shape = [3,3,0,0]
             if layer == "conv1_1":
                 shape[2] = 3
+            else:
+                shape[2] = 64 * self.stride[layer]
+                if shape
