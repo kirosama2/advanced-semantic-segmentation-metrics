@@ -147,4 +147,8 @@ class Test():
             if shape[3] > 512: shape[3] = 512
         elif layer.startswith("fc"):
             if layer.startswith("fc6"):
-                shape = [3,3,512,1024
+                shape = [3,3,512,1024]
+            if layer.startswith("fc7"):
+                shape = [1,1,1024,1024]
+            if layer.startswith("fc8"): 
+ 
