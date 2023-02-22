@@ -141,4 +141,5 @@ class Test():
                 shape[2] = 3
             else:
                 shape[2] = 64 * self.stride[layer]
-                if shape
+                if shape[2] > 512: shape[2] = 512
+                if layer in ["conv2_1","conv3_1","conv4_1"]: shape[2] = i
