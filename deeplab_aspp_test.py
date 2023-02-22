@@ -145,4 +145,6 @@ class Test():
                 if layer in ["conv2_1","conv3_1","conv4_1"]: shape[2] = int(shape[2]/2)
             shape[3] = 64 * self.stride[layer]
             if shape[3] > 512: shape[3] = 512
-        elif
+        elif layer.startswith("fc"):
+            if layer.startswith("fc6"):
+                shape = [3,3,512,1024
