@@ -153,4 +153,6 @@ class Test():
             if layer.startswith("fc8"): 
                 shape = [1,1,1024,self.category_num]
         init = tf.random_normal_initializer(stddev=0.01)
-        weights = tf.get_v
+        weights = tf.get_variable(name="%s_weights" % layer,initializer=init, shape = shape)
+        init = tf.constant_initializer(0)
+        
