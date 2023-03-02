@@ -155,4 +155,5 @@ class Test():
         init = tf.random_normal_initializer(stddev=0.01)
         weights = tf.get_variable(name="%s_weights" % layer,initializer=init, shape = shape)
         init = tf.constant_initializer(0)
-        
+        bias = tf.get_variable(name="%s_bias" % layer,initializer=init, shape = [shape[-1]])
+        self.weights[layer] = (we
