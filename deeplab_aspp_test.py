@@ -160,3 +160,8 @@ class Test():
         self.trainable_list.append(weights)
         self.trainable_list.append(bias)
 
+        return weights,bias
+
+    def pred(self):
+        if self.h is not None:
+            self.net["re
