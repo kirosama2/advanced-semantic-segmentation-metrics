@@ -156,4 +156,7 @@ class Test():
         weights = tf.get_variable(name="%s_weights" % layer,initializer=init, shape = shape)
         init = tf.constant_initializer(0)
         bias = tf.get_variable(name="%s_bias" % layer,initializer=init, shape = [shape[-1]])
-        self.weights[layer] = (we
+        self.weights[layer] = (weights,bias)
+        self.trainable_list.append(weights)
+        self.trainable_list.append(bias)
+
