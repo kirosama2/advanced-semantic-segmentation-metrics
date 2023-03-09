@@ -166,4 +166,5 @@ class Test():
         if self.h is not None:
             self.net["rescale_output"] = tf.image.resize_bilinear(self.net["output"],(self.h,self.w))
         else:
-            label_size =
+            label_size = tf.py_func(lambda x:x.shape[1:3],[self.net["input"]],[tf.int64,tf.int64])
+            self.net["rescale_outpu
