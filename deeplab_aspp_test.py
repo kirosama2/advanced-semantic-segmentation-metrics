@@ -164,4 +164,6 @@ class Test():
 
     def pred(self):
         if self.h is not None:
-            self.net["re
+            self.net["rescale_output"] = tf.image.resize_bilinear(self.net["output"],(self.h,self.w))
+        else:
+            label_size =
