@@ -171,4 +171,7 @@ class Test():
             
         self.net["pred"] = tf.argmax(self.net["rescale_output"],axis=3)
 
-    def remove_ignore_label(self,gt,output=Non
+    def remove_ignore_label(self,gt,output=None,pred=None): 
+        ''' 
+        gt: not one-hot 
+        output: a distriution of all labels, and is scaled to mact
