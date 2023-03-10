@@ -174,4 +174,6 @@ class Test():
     def remove_ignore_label(self,gt,output=None,pred=None): 
         ''' 
         gt: not one-hot 
-        output: a distriution of all labels, and is scaled to mact
+        output: a distriution of all labels, and is scaled to macth the size of gt
+        NOTE the result is a flatted tensor
+        and all label which is bigger that or equal to self.category_n
