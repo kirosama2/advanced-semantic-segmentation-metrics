@@ -168,4 +168,7 @@ class Test():
         else:
             label_size = tf.py_func(lambda x:x.shape[1:3],[self.net["input"]],[tf.int64,tf.int64])
             self.net["rescale_output"] = tf.image.resize_bilinear(self.net["output"],[tf.cast(label_size[0],tf.int32),tf.cast(label_size[1],tf.int32)])
-        
+            
+        self.net["pred"] = tf.argmax(self.net["rescale_output"],axis=3)
+
+    def remove_ignore_label(self,gt,output=Non
