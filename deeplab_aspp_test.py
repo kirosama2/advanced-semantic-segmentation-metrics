@@ -176,4 +176,7 @@ class Test():
         gt: not one-hot 
         output: a distriution of all labels, and is scaled to macth the size of gt
         NOTE the result is a flatted tensor
-        and all label which is bigger that or equal to self.category_n
+        and all label which is bigger that or equal to self.category_num is void label
+        '''
+        gt = tf.reshape(gt,shape=[-1])
+        indices = tf.squeeze(tf.where(tf.less(gt,sel
