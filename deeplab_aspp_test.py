@@ -179,4 +179,7 @@ class Test():
         and all label which is bigger that or equal to self.category_num is void label
         '''
         gt = tf.reshape(gt,shape=[-1])
-        indices = tf.squeeze(tf.where(tf.less(gt,sel
+        indices = tf.squeeze(tf.where(tf.less(gt,self.category_num)),axis=1)
+        gt = tf.gather(gt,indices)
+        if output is not None:
+            output = tf.
