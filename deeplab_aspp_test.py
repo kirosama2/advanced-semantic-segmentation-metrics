@@ -188,4 +188,7 @@ class Test():
         elif pred is not None:
             pred = tf.reshape(pred, shape=[-1])
             pred = tf.gather(pred,indices)
-      
+            return gt,pred
+
+    def restore_from_model(self,saver,model_path,checkpoint=False):
+        assert 
