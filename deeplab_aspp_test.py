@@ -182,4 +182,7 @@ class Test():
         indices = tf.squeeze(tf.where(tf.less(gt,self.category_num)),axis=1)
         gt = tf.gather(gt,indices)
         if output is not None:
-            output = tf.
+            output = tf.reshape(output, shape=[-1,self.category_num])
+            output = tf.gather(output,indices)
+            return gt,output
+        
