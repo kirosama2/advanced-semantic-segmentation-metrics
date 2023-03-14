@@ -185,4 +185,7 @@ class Test():
             output = tf.reshape(output, shape=[-1,self.category_num])
             output = tf.gather(output,indices)
             return gt,output
-        
+        elif pred is not None:
+            pred = tf.reshape(pred, shape=[-1])
+            pred = tf.gather(pred,indices)
+      
