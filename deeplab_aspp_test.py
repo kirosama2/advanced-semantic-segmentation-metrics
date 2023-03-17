@@ -196,4 +196,10 @@ class Test():
             ckpt = tf.train.get_checkpoint_state(model_path)
             saver.restore(self.sess, ckpt.model_checkpoint_path)
         else:
-            saver.restore
+            saver.restore(self.sess, model_path)
+
+
+    def predict(self):
+        self.sess = tf.Session()
+
+        data = dataset({
