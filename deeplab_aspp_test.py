@@ -193,4 +193,7 @@ class Test():
     def restore_from_model(self,saver,model_path,checkpoint=False):
         assert self.sess is not None
         if checkpoint is True:
-            ckpt = tf.train.get_checkpoint_state(mode
+            ckpt = tf.train.get_checkpoint_state(model_path)
+            saver.restore(self.sess, ckpt.model_checkpoint_path)
+        else:
+            saver.restore
