@@ -202,4 +202,5 @@ class Test():
     def predict(self):
         self.sess = tf.Session()
 
-        data = dataset({
+        data = dataset({"input_size":None,"categorys":["val"]}) # this is not same with self.data, note the input_size must be None
+        
