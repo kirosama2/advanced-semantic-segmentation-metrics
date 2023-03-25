@@ -204,4 +204,7 @@ class Test():
 
         data = dataset({"input_size":None,"categorys":["val"]}) # this is not same with self.data, note the input_size must be None
         data_x,data_y,data_id,iterator = data.next_batch(category="val",epoches=1)
-        self.build(net_input=data_
+        self.build(net_input=data_x,net_label=data_y,net_id=data_id)
+
+        #crf_config = None
+        config = {"input_size":None,"sess":self.ses
