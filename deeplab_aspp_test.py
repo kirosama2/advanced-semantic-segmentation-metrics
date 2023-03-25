@@ -207,4 +207,8 @@ class Test():
         self.build(net_input=data_x,net_label=data_y,net_id=data_id)
 
         #crf_config = None
-        config = {"input_size":None,"sess":self.ses
+        config = {"input_size":None,"sess":self.sess,"net":self.net,"data":data}
+        p = Predict(config)
+
+        self.sess.run(tf.global_variables_initializer())
+       
