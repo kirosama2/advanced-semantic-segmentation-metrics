@@ -211,4 +211,7 @@ class Test():
         p = Predict(config)
 
         self.sess.run(tf.global_variables_initializer())
-       
+        self.sess.run(tf.local_variables_initializer())
+        self.sess.run(iterator.initializer)
+
+        self.saver
