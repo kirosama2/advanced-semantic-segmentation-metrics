@@ -214,4 +214,5 @@ class Test():
         self.sess.run(tf.local_variables_initializer())
         self.sess.run(iterator.initializer)
 
-        self.saver
+        self.saver = tf.train.Saver(max_to_keep=2,var_list=self.trainable_list)
+        if self.config.get("model_path",False) is not
