@@ -217,4 +217,7 @@ class Test():
         self.saver = tf.train.Saver(max_to_keep=2,var_list=self.trainable_list)
         if self.config.get("model_path",False) is not False:
             print("start to load model: %s" % self.config.get("model_path"))
-            self.restore_from_model(s
+            self.restore_from_model(self.saver,self.config.get("model_path"),checkpoint=False)
+            print("model loaded ...")
+
+        c
