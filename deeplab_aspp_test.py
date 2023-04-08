@@ -220,4 +220,5 @@ class Test():
             self.restore_from_model(self.saver,self.config.get("model_path"),checkpoint=False)
             print("model loaded ...")
 
-        c
+        crf_config = {"g_sxy":3,"g_compat":3,"bi_sxy":80,"bi_srgb":13,"bi_compat":10,"iterations":10} # for test
+  
