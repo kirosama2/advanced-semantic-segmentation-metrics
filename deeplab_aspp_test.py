@@ -228,4 +228,5 @@ class Test():
 
 if __name__ == "__main__":
     category_num = 21
-    t = Test({"batch_size":1,"input_size":N
+    t = Test({"batch_size":1,"input_size":None,"epoches":1,"category_num":category_num,"model_path":"./20180622-3-4/final-0","accum_num":1})
+    t.predict()
