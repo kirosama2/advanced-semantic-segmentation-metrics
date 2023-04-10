@@ -222,4 +222,6 @@ class Test():
 
         crf_config = {"g_sxy":3,"g_compat":3,"bi_sxy":80,"bi_srgb":13,"bi_compat":10,"iterations":10} # for test
         start_time = time.time()
-        p.metrics_predict_tf_with_crf(multiprocess_num=50,crf_config=crf_config,scales
+        p.metrics_predict_tf_with_crf(multiprocess_num=50,crf_config=crf_config,scales=[0.5,0.75,1.0],use_max=True,output_dir=None)
+        end_time = time.time()
+        print("total time:%f" % (end
