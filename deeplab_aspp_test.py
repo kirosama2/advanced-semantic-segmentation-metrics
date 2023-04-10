@@ -224,4 +224,8 @@ class Test():
         start_time = time.time()
         p.metrics_predict_tf_with_crf(multiprocess_num=50,crf_config=crf_config,scales=[0.5,0.75,1.0],use_max=True,output_dir=None)
         end_time = time.time()
-        print("total time:%f" % (end
+        print("total time:%f" % (end_time - start_time))
+
+if __name__ == "__main__":
+    category_num = 21
+    t = Test({"batch_size":1,"input_size":N
