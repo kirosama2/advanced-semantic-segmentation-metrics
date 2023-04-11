@@ -86,3 +86,75 @@ class Predict():
                         for hist in ret:
                             m.update_hist(hist)
                     params = []
+                i += 1
+        except tf.errors.OutOfRangeError:
+            if len(params) > 0:
+                ret = pool.map(single_crf_metrics,params)
+                for hist in ret:
+                    m.update_hist(hist)
+            print("output of range")
+            print("tf miou:%f" % m.get("miou"))
+            print("all metrics:%s" % str(m.get_all()))
+        except Exception as e:
+            print("exception info:%s" % traceback.format_exc())
+        finally:
+            pool.close()
+            pool.join()
+            print("finally")
+
+# Originally written by wkentaro for the numpy version
+# https://github.com/wkentaro/pytorch-fcn/blob/master/torchfcn/utils.py
+class metrics_np():
+    def __init__(self,n_class=1,hist=None):
+        if hist is None:
+            self.hist = np.zeros((n_class,n_class))
+        else:
+            self.hist = hist
+        self.n_class = n_class
+
+    def _fast_hist(self,label_true,label_pred,n_class):
+        mask = (label_true>=0) & (label_true<n_class) # to ignore void label
+        self.hist = np.bincount( n_class * label_true[mask].astype(int)+label_pred[mask],minlength=n_class**2).reshape(n_class,n_class)
+        return self.hist
+
+    def update(self,x,y):
+        self.hist += self._fast_hist(x.flatten(),y.flatten(),self.n_class)
+
+    def update_hist(self,hist):
+        self.hist += hist
+
+    def get(self,kind="miou"):
+        if kind == "accu":
+            return np.diag(self.hist).sum() / (self.hist.sum()+1e-3) # total pixel accuracy
+        elif kind == "precision":
+            return np.diag(self.hist) / (self.hist.sum(axis=0)+1e-3) 
+        elif kind == "recall":
+            return np.diag(self.hist) / (self.hist.sum(axis=1)+1e-3) 
+        elif kind in ["freq","fiou","iou","miou"]:
+            iou = np.diag(self.hist) / (self.hist.sum(axis=1)+self.hist.sum(axis=0) - np.diag(self.hist)+1e-3)
+            if kind == "iou": return iou
+            miou = np.nanmean(iou)
+            if kind == "miou": return miou
+
+            freq = self.hist.sum(axis=1) / (self.hist.sum()+1e-3) # the frequency for each categorys
+            if kind == "freq": return freq
+            else: return (freq[freq>0]*iou[freq>0]).sum()
+        elif kind in ["dice","mdice"]:
+            dice = 2*np.diag(self.hist) / (self.hist.sum(axis=1)+self.hist.sum(axis=0)+1e-3)
+            if kind == "dice": return dice
+            else: return np.nanmean(dice)
+        return None
+
+    def get_all(self):
+     metrics = {}
+     metrics["accu"] = np.diag(self.hist).sum() / (self.hist.sum()+1e-3) # total pixel accuracy
+     metrics["precision"] = np.diag(self.hist) / (self.hist.sum(axis=0)+1e-3) # pixel accuracys for each category, np.nan represent the corresponding category not exists
+     metrics["recall"] = np.diag(self.hist) / (self.hist.sum(axis=1)+1e-3) # pixel accuracys for each category, np.nan represent the corresponding category not exists
+     metrics["iou"] = np.diag(self.hist) / (self.hist.sum(axis=1)+self.hist.sum(axis=0) - np.diag(self.hist)+1e-3)
+     metrics["miou"] = np.nanmean(metrics["iou"])
+     metrics["freq"] = self.hist.sum(axis=1) / (self.hist.sum()+1e-3) # the frequency for each categorys
+     metrics["fiou"] = (metrics["freq"][metrics["freq"]>0]*metrics["iou"][metrics["freq"]>0]).sum()
+     metrics["dices"] = 2*np.diag(self.hist) / (self.hist.sum(axis=1)+self.hist.sum(axis=0)+1e-3)
+     metrics["mdice"] = np.nanmean(metrics["dices"])
+ 
+     return metrics
