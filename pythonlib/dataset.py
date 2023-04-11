@@ -172,3 +172,4 @@ class dataset():
             #print("after index:%s" % str(index))
             colors = dataset.label2rgb_colors[index]
         label = imgco.label2rgb(label,colors=colors,bg_label=ignore_label,bg_color=ignore_color)
+        return label.astype(np.uint8)
